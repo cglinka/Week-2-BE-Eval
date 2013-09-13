@@ -38,15 +38,43 @@ module Tennis
 
     # Returns the String score for the player.
     def score
-      return 'duce' if @points == 3 &&  @opponent.points == 3
-      return 'advantage' if @points >= 4 && @opponent.points + 1 == @points
-      return 'win' if @points >= 4 && @opponent.points + 2 == @points
-      return 'love' if @points == 0
-      return 'fifteen' if @points == 1
-      return 'thirty' if @points == 2
-      return 'forty' if @points == 3
+      return 'duce' if duce?
+      return 'advantage' if advantage?
+      return 'win' if win?
+      return 'love' if love?
+      return 'fifteen' if fifteen?
+      return 'thirty' if thirty?
+      return 'forty' if forty?
+    end
 
+    private
 
+    def duce?
+      @points == 3 &&  @opponent.points == 3
+    end
+
+    def advantage?
+      @points >= 4 && @opponent.points + 1 == @points
+    end
+
+    def win?
+      @points >= 4 && @opponent.points + 2 == @points
+    end
+
+    def love?
+      @points == 0
+    end
+
+    def fifteen?
+      @points == 1
+    end
+
+    def thirty?
+      @points == 2
+    end
+
+    def forty?
+      @points == 3
     end
   end
 end
