@@ -82,8 +82,8 @@ describe Tennis::Player do
 
     context 'when points is at least 3 points and player is leading by 1' do
       it 'returns advantage' do
-        player.points = 3
-        player.opponent.points = 2
+        player.points = 4
+        player.opponent.points = 3
 
         expect(player.score).to eq('advantage')
       end
@@ -95,7 +95,6 @@ describe Tennis::Player do
         player.opponent.points = 3
 
         expect(player.score).to eq('duce')
-        expect(player.opponent.score).to eq('duce')
       end 
     end
 
