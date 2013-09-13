@@ -79,5 +79,17 @@ describe Tennis::Player do
         expect(player.score).to eq('forty')
       end
     end
+
+    context 'when points is at least 3 points and player is leading by 1' do
+      it 'returns advantage'
+    end
+
+    context 'when points is tied at 3 points' do
+      it 'returns duce'
+    end
+
+    context 'when points is at least 4 and player is leading by 2' do
+      it 'returns win'
+    end
   end
 end
