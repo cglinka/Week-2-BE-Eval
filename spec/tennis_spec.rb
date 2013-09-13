@@ -81,15 +81,31 @@ describe Tennis::Player do
     end
 
     context 'when points is at least 3 points and player is leading by 1' do
-      it 'returns advantage'
+      it 'returns advantage' do
+        player.points = 3
+        player.opponent.points = 2
+
+        expect(player.score).to eq('advantage')
+      end
     end
 
     context 'when points is tied at 3 points' do
-      it 'returns duce'
+      it 'returns duce' do
+        player.points = 3
+        player.opponent.points = 3
+
+        expect(player.score).to eq('duce')
+        expect(player.opponent.score).to eq('duce')
+      end 
     end
 
     context 'when points is at least 4 and player is leading by 2' do
-      it 'returns win'
+      it 'returns win' do
+        player.points = 4
+        player.opponent.points = 2
+
+        expect(player.score).to eq('win')
+      end
     end
   end
 end
